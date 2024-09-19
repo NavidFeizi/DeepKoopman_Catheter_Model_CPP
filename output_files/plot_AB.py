@@ -136,14 +136,14 @@ def plot_B_Matrix(Yp, B, save_dir, save=False):
         Yp[:, 0].flatten(),
         Yp[:, 1].flatten(),
         c=B[:, 0, 0].flatten(),
-        cmap="viridis",
+        cmap="plasma",
         s=2,
     )
     sc2 = axs[1].scatter(
         Yp[:, 0].flatten(),
         Yp[:, 1].flatten(),
         c=B[:, 1, 0].flatten(),
-        cmap="viridis",
+        cmap="plasma",
         s=2,
     )
     # sc3 = axs[0, 1].scatter(
