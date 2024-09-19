@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# Deep Koopman Modeling for Tendon Driven Catheters
+# Deep Koopman Model for Tendon-Driven Catheters
 
 </div>
 
@@ -13,12 +13,12 @@ This repository contains the implementation of a deep Koopman-based model for a 
 
 To build and run the model successfully, ensure that the following libraries are installed on your system:
 
-### Deep Koopman model
+### for Deep Koopman model (lib_predictor):
 
 * [Libtorch](https://pytorch.org/) - C++ library for PyTorch
 * [Blaze Library](https://bitbucket.org/blaze-lib/blaze/src/master/)
 
-### Cosserat Rod model
+### for Cosserat's Rod model (tendon_library):
 
 * [Boost](https://www.boost.org/)
 * [Blaze Library](https://bitbucket.org/blaze-lib/blaze/src/master/)
@@ -28,4 +28,9 @@ To build and run the model successfully, ensure that the following libraries are
 
 ## Uage notes
 
-To build and run the model successfully, ensure that the following libraries are installed on your system:
+Tendon actaution must be limites to \pm{} 5 mm
+
+
+## Results
+
+![Diagram](./figures/output_plot.png)

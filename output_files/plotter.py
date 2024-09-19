@@ -86,6 +86,7 @@ axs[4].legend(loc="best", ncol=1)
 
 plt.subplots_adjust(hspace=0.3)  # Set the spacing between subplots
 plt.tight_layout()
-plt.savefig(os.path.join(os.path.dirname(__file__), 'plot.pdf'), format='pdf')
+plt.savefig(os.path.join(os.path.dirname(__file__), 'output_plot.pdf'), format='pdf')
+plt.savefig(os.path.join(os.path.dirname(__file__), 'output_plot.png'), format='png', dpi=300)
 plt.show(block=True)
 
