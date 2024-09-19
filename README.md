@@ -35,8 +35,14 @@ Tendon actaution must be limited to ±5 mm.
 
 ## Results
 
-![Diagram](./figures/output_plot.png)
+The output of the Koopman model, alongside the Cosserat model for a multisinusoidal actuation, is presented below:
 
-![Diagram](./figures/A_matrix.png)
+![Output Plot](./figures/output_plot.png)
 
-![Diagram](./figures/B_matrix.png)
+Continuous-time state transition matrix in the lifted space:
+
+![State Transition Matrix](./figures/A_matrix.png)
+
+Continuous-time input actuation matrix in the lifted space:
+
+![Input Actuation Matrix](./figures/B_matrix.png)
