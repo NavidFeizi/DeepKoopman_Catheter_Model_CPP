@@ -37,6 +37,6 @@ Tendon actaution must be limited to ±5 mm.
 
 ![Diagram](./figures/output_plot.png)
 
-![Diagram](./figures/A_matrix.png.png)
+![Diagram](./figures/A_matrix.png)
 
-![Diagram](./figures/B_matrix.png.png)
+![Diagram](./figures/B_matrix.png)
