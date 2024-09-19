@@ -207,7 +207,7 @@ int main()
         std::cerr << "Failed to open the file for writing" << std::endl;
         return -1;
     }
-    csv_file_matrices << "t,A11,A12,A21,A22,B11,B21\n";
+    csv_file_matrices << "t,x1,x2,x3,x4,y1,y2,A11,A12,A21,A22,B11,B21\n";
 
     // Initialize variabels
     blaze::StaticVector<double, dim_states> X, X_pred, X0;                                    // Robot states [mm] and [mm/s]
@@ -280,6 +280,12 @@ int main()
             csv_file_matrices
                 // << elapsed_2.count() << ","
                 << count * SAMPLE_TIME << ","
+                << X[0] << ","
+                << X[1] << ","
+                << X[2] << ","
+                << X[3] << ","
+                << Y[0] << ","
+                << Y[1] << ","
                 << A(0,0) << ","
                 << A(0,1) << ","
                 << A(1,0) << ","

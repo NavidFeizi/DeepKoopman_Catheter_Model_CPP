@@ -15,24 +15,13 @@ rc('text', usetex=True)
 # Read data from the .dat file
 smaple_time = 0.002
 model_fileName = "sim_output.csv"
-# target = np.genfromtxt("input_files/"  + target_fileName, delimiter=",", dtype=float, skip_header=1)
-# data = np.genfromtxt("output_files/" + model_fileName, delimiter=",", dtype=float, skip_header=1)
 df = pd.read_csv("output_files/" + model_fileName, delimiter=",")
 
 num_samples = df.shape[0]
 
 # Separate the columns into x, y, and z
 t = np.linspace(0, num_samples*smaple_time, num_samples)
-
 t = df['t'].values  
-# X_des = df.loc[:, 'xtarg1':'xtarg4'].values  
-# X_ctrl = df.loc[:, 'x1':'x4'].values  
-
-# x1_dot = np.diff(X_ctrl[:,0])/smaple_time
-# x1_dot = np.append(x1_dot, x1_dot[-1])
-
-# x2_dot = np.diff(X_ctrl[:,2])/smaple_time
-# x2_dot = np.append(x2_dot, x2_dot[-1])
 
 # Create  plot
 fig = plt.figure(figsize=(12, 7))
@@ -44,18 +33,17 @@ axs.append(fig.add_subplot(gs[1, 0]))  # ax[1]
 axs.append(axs[2].twinx())
 axs.append(fig.add_subplot(gs[2, 0]))  # ax[1]
 
-axs[0].plot(t, df["pred_p_x"].to_numpy(), c="black", label="$x^{kpm}_1$", linewidth=1.5)  
-axs[1].plot(t, df["pred_v_x"].to_numpy(), c="red", label="$x^{kpm}_2$", linewidth=1.5)  
-axs[2].plot(t, df["pred_p_z"].to_numpy(), c="black", label="$x^{kpm}_3$", linewidth=1.5) 
-axs[3].plot(t, df["pred_v_z"].to_numpy(), c="red", label="$x^{kpm}_4$", linewidth=1.5)  
+axs[0].plot(t, df["pred_p_x"].to_numpy(), c="black", label="$x^{KPM}_1$", linewidth=1.5)  
+axs[1].plot(t, df["pred_v_x"].to_numpy(), c="red", label="$x^{KPM}_2$", linewidth=1.5)  
+axs[2].plot(t, df["pred_p_z"].to_numpy(), c="black", label="$x^{KPM}_3$", linewidth=1.5) 
+axs[3].plot(t, df["pred_v_z"].to_numpy(), c="red", label="$x^{KPM}_4$", linewidth=1.5)  
 
-axs[0].plot(t, df["p_x"].to_numpy(), c="cyan", label="$x^{}_1$", linestyle="--", linewidth=2)  
-axs[1].plot(t, df["v_x"].to_numpy(), c="blue", label="$x^{}_2$", linestyle="--", linewidth=2)  
-axs[2].plot(t, df["p_z"].to_numpy(), c="cyan", label="$x^{}_3$", linestyle="--", linewidth=2) 
-axs[3].plot(t, df["v_z"].to_numpy(), c="blue", label="$x^{}_4$", linestyle="--", linewidth=2)  
+axs[0].plot(t, df["p_x"].to_numpy(), c="cyan", label="$x^{CSRT}_1$", linestyle="--", linewidth=2)  
+axs[1].plot(t, df["v_x"].to_numpy(), c="blue", label="$x^{CSRT}_2$", linestyle="--", linewidth=2)  
+axs[2].plot(t, df["p_z"].to_numpy(), c="cyan", label="$x^{CSRT}_3$", linestyle="--", linewidth=2) 
+axs[3].plot(t, df["v_z"].to_numpy(), c="blue", label="$x^{CSRT}_4$", linestyle="--", linewidth=2)  
 
-# axs[1].plot(t, x1_dot, c="green", label="$\dot{x}^{model}_1$", linestyle="--", linewidth=1) 
-# axs[3].plot(t, x2_dot/2, c="green", label="$\dot{x^{model}_2}$", linestyle="--", linewidth=1.5)  
+axs[4].plot(t, df["u"].to_numpy(), c="black", label="$u$", linewidth=1.5)  # Scatter plot with red circles
 
 axs[0].set_title("States")
 axs[0].set_ylabel("$x_1$ [mm]")
@@ -75,8 +63,6 @@ handles3, labels3 = axs[2].get_legend_handles_labels()
 handles4, labels4 = axs[3].get_legend_handles_labels()
 axs[3].legend(handles3 + handles4, labels3 + labels4, loc="best", ncol=2)
 
-axs[4].plot(t, df["u"].to_numpy(), c="black", label="$u$", linewidth=1.5)  # Scatter plot with red circles
-
 axs[4].set_title("Input")
 axs[4].set_xlabel("Time [s]")
 axs[4].set_ylabel("u [mm]")
@@ -89,4 +75,3 @@ plt.tight_layout()
 plt.savefig(os.path.join(os.path.dirname(__file__), 'output_plot.pdf'), format='pdf')
 plt.savefig(os.path.join(os.path.dirname(__file__), 'output_plot.png'), format='png', dpi=300)
 plt.show(block=True)
-
