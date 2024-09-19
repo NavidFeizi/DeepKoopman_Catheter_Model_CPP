@@ -7,7 +7,9 @@
 
 This repository contains the implementation of a deep Koopman-based model for a tendon-driven catheter. The model leverages a ground truth Cosserat Rod model to generate the dataset for calibration. Calibration processes have been specifically conducted for the bending section of the Biosense Webster Thermocouple Ablation catheter. The model accepts tendon displacement as input and computes the system states, including the position and velocity of the distal end within the actuation plane, rendering the model's operation in 2D.
 
-<img src="./figures/Koopman_diagram.png" width="50%" alt="Diagram">
+<div align="center">
+    <img src="./figures/Koopman_diagram.png" width="70%" alt="Diagram">
+</div>
 
 ## Building Requirements
 
